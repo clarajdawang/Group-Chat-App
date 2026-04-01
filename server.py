@@ -7,7 +7,7 @@ MSG_ENCODING = "utf-8"
 
 class Server:
 
-    HOSTNAME = "127.0.0.1"
+    HOSTNAME = "192.168.0.124"
 
     PORT = 50000
     RECV_SIZE = 1024
@@ -101,10 +101,12 @@ class Server:
     
     def get_directory():
         file_data = Server.load_from_file()
-        message = "Directory List \n------------------- \n"
 
+        print(file_data)
+
+        message = ""
         for line in file_data:
-            message = message + "Room name: " + line[0] + ", Address: " + line[1] + ", Port: " + line[2] + "\n"
+            message = message + line[0] + " " + line[1] + " " + line[2] + "\n"
 
         return message + "\n"
     
